@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+		
+		<script type="text/javascript">
+					$(function(){	
+			
+			
+			$("#checkAll").click(function(){
+				$(":checkbox").attr("checked",true)
+			});
+			
+			$("#checkNo").click(function(){
+				$(":checkbox").attr("checked",false)
+			});
+			
+			$("#check").click(function(){
+				for(var i=0; i<$(":checkbox").length; i++){
+			if($(":checkbox").eq(i).attr("checked") == "checked"){
+				$(":checkbox").eq(i).attr("checked", false);
+			}else{
+				$(":checkbox").eq(i).attr("checked", "checked");
+			}
+				}
+			});
+			
+			$("#submit").click(function(){
+				if($(":checked").length==0){
+					alert("您一个都没选")
+				}else{
+					alert("您选择了"+$(":checked").length+"个爱好")
+				}
+			});
+		})
+			
+			
+			
+		</script>
+	</head>
+	<body>
+		
+		<form>
+			<input type="checkbox" name="aa" />乒乓球
+			<input type="checkbox" name="aa" />跑步
+			<input type="checkbox" name="aa" />钓鱼
+			<input type="checkbox" name="aa" />骑山地车<br />
+			
+			<input id="checkAll" type="button" value="全选" />
+			<input id="checkNo"  type="button" value="全不选" />
+			<input id="check" type="button" value="反选" />
+			<input id="submit" type="button" value="提交" />
+			
+			
+		</form>
+	</body>
+</html>

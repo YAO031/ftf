@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<<form action="" method="post"  enctype="multipart/form-data">
+        用户名：<input id="uname" name="uname" type="text"><br/>
+        密码1：<input id="password" name="uname" type="password"><br/>
+       <div> 密码2：<input  name="p1" type="text"><br/>
+       </div>
+       <input type="button" value="点击" onclick="gg">
+</form>
+
+    <input name="usname"  type="text">
+
+
+    <script>
+                function gg(params) {
+                    //给form表单找儿子
+                    $.each($('form input'),function(index, value) {
+                        console.log($(this));
+                        $(this).val("我是form的后代们")
+
+                    })
+                        //这是找儿子
+                    // console.log($("form>input"));
+
+                    $('form > input').val("我是form的儿子们")
+                   // console.log($('form input'));
+
+                    // $('form input').val("我是from的后代")
+                }
+
+
+
+    </script>
+    
+</body>
+</html>

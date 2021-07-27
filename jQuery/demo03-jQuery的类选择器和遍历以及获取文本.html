@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+
+    <div>唐僧</div>
+    <div class="divcss">孙大圣</div>
+    <div class="divcss">朱二圣</div>
+
+    <input type="button" value="点击" onclick="kk">
+
+    <script>
+
+            function kk(params) {
+
+                $.each($('div')function(index, value) {
+
+                    var divtext=$(this).text();
+
+                    console.log(divtext);
+                    
+                })
+                
+            }
+
+
+    </script>
+
+    
+</body>
+</html>

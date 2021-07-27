@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+    <table border="1">
+        <tr>
+            <td><input type="checkbox" value="1"></td>
+            <td>豹女</td>
+            <td>300</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" value="2"></td>
+            <td>龙女</td>
+            <td>300</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" value="3"></td>
+            <td>提摩</td>
+            <td>320</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" value="4"></td>
+            <td>琴女</td>
+            <td>350</td>
+        </tr>
+    </table>
+
+    <input type="button" value="点击选择第几个使用eq选择器" id="eqBth">
+    <input type="button" value="点击选择第1个使用eq选择器" id="firstBth">
+    <input type="button" value="点击选择第最后个使用eq选择器" id="lasBTh">
+    <input type="button" value="点击选择全选使用eq选择器" id="ALLBTh">
+    <input type="button" value="点击选择反选使用eq选择器" id="bLLBTh">
+    <input type="button" value="点击选择checked选择器" id="checked">
+    <input type="button" value="点击选择nochecked选择器" id="nochecked">
+
+
+
+    <script>
+        //奇偶数变色过滤选择器
+
+        $(function () {
+            $("table tr:even").css('background-color', 'red');
+            $("table tr:odd").css('background-color', 'green');
+
+            $('#eqBth').click(function (params) {
+
+                var ss = $('table tr:eq(2) td:eq(1)').html();
+
+
+
+                // $('table tr:eq(2)').click(function (){
+
+
+
+                // })
+            })
+
+            $('#firstBth').click(function () {
+
+                var first = $('table tr:first').html();
+                console.log(first);
+
+            })
+            $('#lasBTh').click(function () {
+
+                var last = $('table tr:last').html();
+                console.log(last);
+
+            })
+
+        })
+        //全选
+        $('#ALLBTh').click(function () {
+            //.each(function(index, value) {
+
+
+            // console.log($('#table tr td>input'));
+
+            $.each($('#table tr td>input'), function (index, value) {
+
+
+                console.log(index);
+                console.log(value);
+                console.log($(this).val());
+
+                $(this).prop('checked', true)
+            })
+        })
+                    
+
+        $('#checked').click(function () {
+
+            $('table tr td>input:checked')
+            $.each($($('table tr td>input:checked')), function (index, value) {
+
+
+                console.log(index);
+                console.log(value);
+                console.log($(this).val());
+
+                $(this).prop('checked', true)
+            })
+
+        })
+
+        $('#nochecked').click(function () {
+
+            console.log($("table tr td>input:not(:checked)"));
+
+        })
+
+        $('#bLLBTh').click(function () {
+
+            $.each($('table tr td>input'),function(index,value){
+
+                var istrue=$(this).prop('checked');
+                console.log(istrue);
+                if (istrue) {
+                    $('this').prop
+                    
+                } else {
+                    
+                }
+
+
+            })
+
+
+
+
+
+        })
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

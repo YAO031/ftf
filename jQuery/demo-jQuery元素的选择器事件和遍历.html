@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+  <script src="js\jquery-3.2.1.min.js"></script>
+    
+</head>
+<body>
+<h1> 目的：获取每一个input中的 值 jQuery 的取值和遍历</h1>
+
+用户名1：<input id="aa" type="text"></input><br/>
+用户名2：<input id="aa1" type="text"></input><br/>
+用户名3：<input id="aa2" type="text"></input><br/>
+简介：<textarea></textarea>
+<input type="button" value="点击" onclick="mm">
+<input type="button" value="点击" onclick="mm2">
+
+<script >
+
+   function mm(){
+        //遍历
+
+       var input= $('input');
+   input.each(function(index, value) {//遍历jQuery的元素的
+    //    console.log(index);//索引
+    //    console.log(value);//元素
+    console.log($(this));//值在当前索引的元素
+
+    console.log($(this).val);
+   })
+
+   };
+
+   function mm1() {
+       $.each($('input'),function(index, value) {
+           console.log(index);
+           console.log(value);
+           console.log($(this).val);
+           
+       })
+       
+   }
+
+
+</script>
+    
+</body>
+</html>

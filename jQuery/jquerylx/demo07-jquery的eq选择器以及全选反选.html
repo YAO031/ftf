@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <td><input type="checkbox" value="1"></td>
+            <td>豹女</td>
+            <td>300</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" value="2"></td>
+            <td>龙女</td>
+            <td>300</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" value="3"></td>
+            <td>提摩</td>
+            <td>320</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" value="4"></td>
+            <td>琴女</td>
+            <td>350</td>
+        </tr>
+    </table>
+
+    <input type="button" value="点击选择第几个使用eq选择器" id="eqBtn">
+    <input type="button" value="点击选择第1个使用first选择器" id="firstBtn">
+    <input type="button" value="点击选择最后个使用first选择器" id="lastBtn">
+
+    <script>
+
+        $(function(){
+            // jquery 使用过滤选择器 达到 奇数偶数 变色 ,,同时也学了 jquery操做css
+            $("table tr:even ").css('background-color', 'red');
+            $("table tr:odd ").css('background-color', 'green');
+            // 拿去指定的
+            $("#eqBtn").click(function() {
+                var timo=  $("table tr:eq(2) td:eq(1) ").text();
+                console.log(timo)
+            })
+            // 拿取 第一个
+            $("#firstBtn").click(function() {
+               var first=  $('table tr:first').html();
+               console.log(first)
+            })
+              // 拿取 最后一个
+              $("#lastBtn").click(function() {
+               var last=  $('table tr:last').text();
+               console.log(last)
+            })
+
+
+        })
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.2.1.min.js"></script>
+
+    <script>
+
+        .fire{
+
+            backgroundColor: red;
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <ul>
+
+        <li>大洼</li>
+        <li>二洼</li>
+        <li>三洼</li>
+        <li>四洼</li>
+        <li>五洼</li>
+        <li>六洼</li>
+        <li>七洼</li>
+
+
+    </ul>
+
+    <input type="button" value="点击追加" id="appendBth">
+    <input type="button" value="子元素选择器 查找第几个儿子 类似eq" id="childBth">
+    <input type="button" value="删除查找第几个儿子 类似eq" id="deldBth">
+    <input type="button" value="清空元素 查找第几个儿子 类似eq" id="emptdBth">
+    <input type="button" value="背景颜色查找第几个儿子 类似eq" id="cssdBth">
+    <input type="button" value="背景颜色查找第几个儿子 类似eq" id="delcssdBth">
+    <input type="button" value="背景颜色查找第几个儿子 类似eq" id="addddBth">
+
+
+
+
+
+
+    <script>
+
+        $(function () {
+            //追加
+
+            $('#appendBth').click(function () {
+                //第一步构建一个
+                var liDom = $("<li>娃娃</li>"); //这是构建，
+
+                //   $('ul').append(liDom);//末尾追加
+
+                //   liDom.appendTo("ul");//挤进去
+
+                // $('ul').prepend(liDom);//初始位置添加
+                liDom.prependTo("ul");//也是初始位置添加
+
+
+
+            })
+            $('#deldBth').click(function () {
+                $('ul li:eq(2)').remove();
+
+
+            })
+            $('#emptdBth').click(function () {
+                $('ul').empty();
+
+
+            })
+
+            $('#cssdBth').click(function () {
+
+                $('ul li:eq(3)').addClass('fire')
+
+            })
+            $('#delcssdBth').click(function () {
+
+                $('ul li:eq(3)').removeClass('fire')
+
+            })
+            $('#addddBth').click(function () {
+
+                $('ul li:eq(3)').before($('<li>孙悟空</li>'))
+
+            })
+
+
+            $('#childBth').click(function () {
+                //花去li第一个元素
+                console.log($('ul li:eq(0)'));
+
+                console.log($('ul li:filts-child'));
+                console.log($('ul li:filts'));
+
+                //获取最后一个元素
+                console.log('ul li:last');
+                console.log('ul li:last-child');
+
+                //获取之定元素
+                console.log($('ul li:eq(2)'));
+                console.log('ul li:nth-child(2)');//起始位是1开始的
+
+
+
+
+            })
+
+
+        })
+
+
+    </script>
+</body>
+
+</html>

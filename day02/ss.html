@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.2.1.min.js"></script>
+</head>
+<body>
+    <button type="button">add</button>
+        <button type="button">del</button>
+        <p></p>
+        <form action="" method="get">
+        <table>
+            <tr>
+                <th><input name="all" type="checkbox" value="" /></th>
+                <th>学号</th>
+                <th>姓名</th>
+                <th>成绩</th>
+            </tr>
+            <tr>
+                <td><input name="cc" type="checkbox" value="" /></td>
+                <td>001</td>
+                <td>小明</td>
+                <td>66</td>
+            </tr>
+            <tr>
+                <td><input name="cc" type="checkbox" value=""/></td>
+                <td>002</td>
+                <td>小红</td>
+                <td>99</td>
+            </tr>
+            <tr>
+                <td><input name="cc" type="checkbox" value="" /></td>
+                <td>003</td>
+                <td>小亮</td>
+                <td>10</td>
+            </tr>
+        </table>
+        </form>
+        <script>
+            //全选
+            $("input:eq(0)").click(function(){
+                $("tr:gt(0)").toggleClass("a");
+                if($(this).prop("checked") == true){
+                    $("input:gt(0)").prop("checked", true);
+                }else{
+                    $("input:gt(0)").prop("checked", false);
+                }
+            });
+            $(document).on("click","tr:gt(0)", function(){
+                var $input = $(this).find("input");
+                //  jq 1.6+ 对于checkbox、radio的attr("checked", true)操作，已经替换为prop()方法
+                if ($input.prop("checked") == true){
+                    $input.prop("checked", false);
+                    $(this).removeClass("a");
+                }else{
+                    $input.prop("checked", true);
+                    $(this).addClass("a");
+                }
+            });
+            /*
+            toggle：1.8开始不推荐使用，1.9已经取消了
+            toggle API:The implementation also calls .preventDefault() on the event, so links will not be followed and buttons will not be clicked if.toggle() has been called on the element
+            $("input:gt(0)").toggle{
+                function(){$(this).prop("checked",true);},
+                function(){alert("22");}
+            };
+            */
+            $(document).on("click", "input:gt(0)", function(){
+                if($(this).prop("checked") == true){
+                    $(this).removeAttr("checked");
+                }else{
+                    $(this).prop("checked", true);
+                }
+            });
+ 
+ 
+            //添加新行
+            $("button:eq(0)").click(function(){
+                var $i = $("tr:eq(1)").clone();
+                $("table").append($i);
+            });
+            //删除所选行
+            $("button:eq(1)").click(function(){
+                $(".a").remove();
+            });
+        </script>
+
+
+    
+</body>
+</html>

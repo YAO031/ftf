@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-3.2.1.min.js"></script>
+    <style type="text/css">
+        table {
+            width: 800px;
+            border-collapse: collapse;
+
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+
+            <td>姓名：<input id="realName" name="realName" type="text"></td>
+            <td>年龄：<input id="age" name="age" type="text"></td>
+            <td>地址：<input id="address" name="address" type="text"></td>
+            <td><input value="添加" type="button" id="add">
+                <input value="批量删除" type="button" id="delBatch">
+            </td>
+        </tr>
+    </table>
+    <table border="1">
+        <thead>
+            <tr>
+                <td><input id="checkall" type="checkbox" id="checkAll"></td>
+                <td>姓名</td>
+                <td>年龄</td>
+                <td>地址</td>
+                <td>操作</td>
+            </tr>
+        </thead>
+        <tbody id="mytb">
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>谢欣</td>
+                <td>30</td>
+                <td>郑州</td>
+                <td><a href="javascript:void(0)" id="del">删除</a></td>
+            </tr>
+        </tbody>
+
+    </table>
+
+    <script>
+
+        $(function () {
+           $('#add').click(function() {
+               var name=$('#realName').val();
+               var  age=$('#age').val();
+               var   address=$('address').val();
+
+               var ss="<tr><td><input type='checkbox'></td><td>"+name+"</td><td>"+age+"</td><td>"+address+"</td><td><a href='javascript:void(0)'' id='del'>删除</a></td></tr>";
+               
+                $('#mytb').append(ss);
+          
+            })
+
+            $('#mytb').on('click','#del',function() {
+
+                $(this).closest('tr').remove();
+                
+
+
+            })
+
+            $('#delBatch').click(function() {
+                
+            })
+
+            $('#checkAll').click(function() {
+                $('#mytb').empty();
+            })
+            
+             
+            $('#delBatch').click(function() {
+                $(":checked").parent().parent().fadeOut("show");
+            })
+            $("#checkall").click(function(){
+            $(":checkbox").attr("checked",true);   //设置所有复选框默认勾选       
+            })
+
+               
+           
+        })
+
+
+
+
+    </script>
+
+</body>
+
+</html>

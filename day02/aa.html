@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.2.1.min.js"></script>
+</head>
+<body>
+
+
+    <form name="userForm">
+        <center>
+          用户录入
+          <br />
+          用户名:
+          <input id="username" name="username" type="text" size=15 />
+          E-mail:
+          <input id="email" name="email" type="text" size=15 />
+          电话:
+          <input id="tel" name="tel" type="text" size=15 />
+          <input type="button" value="添加" id="btn_submit" />
+          <input type="button" value="删除所有" id="btn_removeAll" />
+        </center>
+      </form>
+      
+      
+      <table border="1" align="center" cellpadding=0 cellspacing=0 width=400>
+        <thead>
+          <tr>
+            <th>用户名</th>
+            <th>E-mail</th>
+            <th>电话</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+
+        <tbody id="userTbody">
+          <tr>
+            <td>乔峰</td>
+            <td>qiao@163.com</td>
+            <td>18212345678</td>
+            <td>
+              <a href='#' class='myClz'>删除</a>
+            </td>
+          </tr>
+        </tbody>
+  
+      </table>
+
+<script>
+
+$(function () {
+  $("#btn_submit").click(function () {
+    // 获取用户输入的值
+    var usernameVal = $("#username").val();
+    var emailVal = $("#email").val();
+    var telVal = $("#tel").val();
+    var tr = "<tr><td>" + usernameVal + "</td><td>" + emailVal
+      + "</td><td>" + telVal
+      + "</td><td><a href='#' class='myClz'>删除</a></td></tr>";
+    $("#userTbody").append(tr);
+  });
+  // 全部删除
+  $("#btn_removeAll").click(function () {
+    $("#userTbody").empty();
+  });
+  //删除一行数据
+  /*click只对本身页面有的元素有作用，对于后面新加的元素，不起作用
+     $(".myClz").click(function() {
+       console.log(123);
+     });
+   */
+  /*选择id=userTbody元素下所有样式名含有myClz的标签,并添加click事件
+   *当点击后,向上一级找到tr元素，然后删除
+  */
+  $('#userTbody').on('click', ".myClz", function () {
+    $(this).closest('tr').remove();
+  });
+});
+
+
+
+</script>
+
+
+
+
+    
+</body>
+</html>

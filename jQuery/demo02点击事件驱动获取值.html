@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+
+            <div>
+                    <span>请输入姓名</span> <input type="text" id="name" ></input><br/>
+                    <span>输入密码</span> <input type="password" id="aa" class="uu"></input><br/>
+                    <span>再次输入密码</span> <input type="password" id="aa" class="uu"></input><br/>
+                   <input type="button" id="hh" value="提交"></input>
+                        
+                   
+
+
+            </div>
+
+    <script>
+            $(function(){
+                //jq 能省就省
+
+                $('#hh').click(function() {
+                    //id 选择器
+
+                    var uname=$('#name').val();
+                    alert(uname)
+                    var password=$('#aa').val();
+                    alert(password)
+
+                    //class 选择器
+
+                    var ped=$(.uu)
+                    console.log(ped)
+
+
+                    //元素选择器
+                    var span=$("span")
+                    console.log(span)
+
+                    //并列选择器
+                    var binglie=$("#name,#aa")
+
+                    console.log(binglie);
+
+                    //通配符学则器
+
+                    var all=$("*")
+                    console.log(all);
+                   
+                    
+                })
+            })
+
+
+
+    </script>
+    
+</body>
+</html>
