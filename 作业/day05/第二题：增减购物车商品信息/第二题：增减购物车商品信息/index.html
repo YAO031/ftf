@@ -1,0 +1,376 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>增减购物车商品信息 </title>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <style type="text/css">
+        * {
+            font-size: 12px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <table border="1" cellpadding="0" cellspacing="0" >
+        <tr>
+            <th><input type='checkbox' class="alll" onclick="allselect(this)"/>全选</th>
+            <th>商品信息</th>
+            <th>宜美惠价</th>
+            <th>数量</th>
+            <th>操作</th>
+
+        </tr>
+
+        <tr class="tr_0">
+            <td>
+                <input name="ssss" type="checkbox" value="" class="aa1" />
+            </td>
+            <td><img src="images/sang.gif" class="products" /><a href="#">天堂雨伞</a></td>
+            <td>￥32.9元</td>
+            <td>
+                <input type="button" value="-" onclick="jian(this)">
+                <input type="text" class="quantity" value="1" />
+                <input type="button" value="+" onclick="jia(this)">
+            </td>
+            <td>
+                <input type="button" value="删除" onclick="del(this)" class="dela">
+            </td>
+        </tr>
+        <tr class="tr_1">
+            <td>
+                <input name="ssss" type="checkbox" value="" class="aa2" />
+            </td>
+            <td>
+                <img src="images/iphone.gif" class="products" /><a href="#">苹果手机iphone5</a>
+            </td>
+            <td>￥3339元
+            </td>
+            <td>
+                <input type="button" value="-" onclick="jiana(this)">
+                <input type="text" class="quantitya" value="1" />
+                <input type="button" value="+" onclick="jiaa(this)">
+            </td>
+            <td>
+                <input type="button" value="删除" onclick="dela(this)" class="delb">
+
+            </td>
+        </tr>
+
+    </table>
+
+    <input type="button" value="添加" onclick="add(this)">
+    <input type="button" value="删除" onclick="delss(this)">
+</body>
+
+<script>
+
+    //减一数量
+    function jian(params) {
+
+        var shulaing = $('.quantity').val();
+
+        var jiange = 32.9;
+
+        if (shulaing > 0) {
+
+            shulaing -= 1;
+            var zongjia = shulaing * jiange;
+            var zhong = Number(zongjia).toFixed(2);
+            console.log("这是数量");
+            console.log(jiange);
+            console.log(shulaing);
+
+            console.log(zongjia);
+            $('.tr_0').children().eq(2).text(zhong);
+
+            $('.quantity').val(shulaing);
+
+        } else {
+
+            $('.tr_0').children().eq(2).text("0");
+
+
+        }
+
+
+
+
+
+
+
+
+    }
+    //加一数量
+    function jia(params) {
+
+        var shulaing = $('.quantity').val();
+
+        var jiange = 32.9;
+
+        if (shulaing >= 0) {
+
+            var shu = parseInt(shulaing) + 1;
+            var zongjia = shu * jiange;
+            var zhong = Number(zongjia).toFixed(2);
+
+            console.log(zongjia);
+            $('.tr_0').children().eq(2).text(zhong);
+
+            $('.quantity').val(shu);
+
+        } else {
+
+            $('.tr_0').children().eq(2).text("0");
+
+
+        }
+
+
+
+
+
+
+
+
+    }
+
+    function del(params) {
+
+        $('.dela').parent().parent().remove();
+
+
+
+    }
+    //减一数量
+    function jiana(params) {
+
+        var shulaing = $('.quantitya').val();
+
+        var jiange = 3339;
+
+        if (shulaing > 0) {
+
+            shulaing -= 1;
+            var zongjia = shulaing * jiange;
+            var zhong = Number(zongjia).toFixed(2);
+            console.log("这是数量");
+            console.log(jiange);
+            console.log(shulaing);
+
+            console.log(zongjia);
+            $('.tr_1').children().eq(2).text(zhong);
+
+            $('.quantitya').val(shulaing);
+
+        } else {
+
+            $('.tr_1').children().eq(2).text("0");
+
+
+        }
+
+
+
+
+
+
+
+
+    }
+    //加一数量
+    function jiaa(params) {
+
+        var shulaing = $('.quantitya').val();
+
+        var jiange = 3339;
+
+        if (shulaing >= 0) {
+
+            var shu = parseInt(shulaing) + 1;
+            var zongjia = shu * jiange;
+            var zhong = Number(zongjia).toFixed(2);
+            console.log("这是数量");
+            console.log(jiange);
+            console.log(shulaing);
+
+            console.log(zongjia);
+            $('.tr_1').children().eq(2).text(zhong);
+
+            $('.quantitya').val(shu);
+
+        } else {
+
+            $('.tr_1').children().eq(2).text("0");
+
+
+        }
+
+
+
+
+
+
+
+
+    }
+
+    function dela(params) {
+
+        $('.delb').parent().parent().remove();
+
+
+
+    }
+
+    function add(params) {
+
+        $('.aa1').prop("checked");
+        if ($('.aa1').prop("checked")) {
+            var shulaing = $('.quantity').val();
+
+            var jiange = 32.9;
+
+            if (shulaing >= 0) {
+
+                var shu = parseInt(shulaing) + 1;
+                var zongjia = shu * jiange;
+                var zhong = Number(zongjia).toFixed(2);
+
+
+                console.log(zongjia);
+                $('.tr_0').children().eq(2).text(zhong);
+
+                $('.quantity').val(shu);
+
+            } else {
+
+                $('.tr_0').children().eq(2).text("0");
+
+
+            }
+
+
+        }
+        $('.aa2').prop("checked");
+        if ($('.aa2').prop("checked")) {
+            var shulaing = $('.quantitya').val();
+
+            var jiange = 3339;
+
+            if (shulaing >= 0) {
+
+                var shu = parseInt(shulaing) + 1;
+                var zongjia = shu * jiange;
+                var zhong = Number(zongjia).toFixed(2);
+
+
+                console.log(zongjia);
+                $('.tr_1').children().eq(2).text(zhong);
+
+                $('.quantitya').val(shu);
+
+            } else {
+
+                $('.tr_1').children().eq(2).text("0");
+
+
+            }
+
+
+        }
+
+
+    }
+    function delss(params) {
+
+        $('.aa1').prop("checked");
+        if ($('.aa1').prop("checked")) {
+            var shulaing = $('.quantity').val();
+
+            var jiange = 32.9;
+
+            if (shulaing >= 0) {
+
+                var shu = parseInt(shulaing) - 1;
+                var zongjia = shu * jiange;
+                var zhong = Number(zongjia).toFixed(2);
+
+
+                console.log(zongjia);
+                $('.tr_0').children().eq(2).text(zhong);
+
+                $('.quantity').val(shu);
+
+            } else {
+
+                $('.tr_0').children().eq(2).text("0");
+
+
+            }
+
+
+        }
+        $('.aa2').prop("checked");
+        if ($('.aa2').prop("checked")) {
+            var shulaing = $('.quantitya').val();
+
+            var jiange = 3339;
+
+            if (shulaing >= 0) {
+
+                var shu = parseInt(shulaing) -1;
+                var zongjia = shu * jiange;
+                var zhong = Number(zongjia).toFixed(2);
+
+
+                console.log(zongjia);
+                $('.tr_1').children().eq(2).text(zhong);
+
+                $('.quantitya').val(shu);
+
+            } else {
+
+                $('.tr_1').children().eq(2).text("0");
+
+
+            }
+
+
+        }
+
+
+    }
+    //全选
+    function allselect(params) {
+        // $('.alll').prop("checked");
+
+        // console.log($('.alll').prop("checked"));
+
+        // if ($('.alll').prop("checked")) {
+
+        //     $("input :checkbox").attr("checked", true); 
+            
+        // }
+
+        $.each( $('table tr td>input'),  function(index, value) {
+                 //   console.log(index)
+                  //  console.log(value)
+                    console.log(  $(this).val()  )  // 遍历取值
+                    $(this).prop('checked',true)   // 全选
+               })
+
+        
+    }
+
+
+
+
+
+
+</script>
+
+</html>
